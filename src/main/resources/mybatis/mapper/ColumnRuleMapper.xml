@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myproj.myproj.dao.ColumnRuleDao">
+    <resultMap type="com.myproj.myproj.entity.ColumnRuleEntity" id="columnRuleMap">
+        <result column="ID" property="id"/>
+        <result column="DB_TABLE_NAME" property="dbTableName"/>
+        <result column="DB_COLUMN_NAME" property="dbColumnName"/>
+        <result column="ALLOW_ACCESS" property="allowAccess"/>
+        <result column="RULE_TYPE" property="ruleType"/>
+        <result column="SENSITIVE_RULE" property="sensitiveRule"/>
+        <result column="VERSION" property="version"/>
+        <result column="DELETE_FLAG" property="deleteFlag"/>
+        <result column="DELETE_TIME" property="deleteTime"/>
+        <result column="CREATED_BY" property="createdBy"/>
+        <result column="CREATED_DATE" property="createdDate"/>
+        <result column="LAST_MODIFIED_BY" property="lastModifiedBy"/>
+        <result column="LAST_MODIFIED_DATE" property="lastModifiedDate"/>
+        <result column="COLUMN_NAME_COMMENTS" property="columnNameComments"/>
+        <result column="DATA_LENGTH" property="dataLength"/>
+    </resultMap>
+
+    <sql id="column_list">
+        ID, 
+        DB_TABLE_NAME, 
+        DB_COLUMN_NAME, 
+        ALLOW_ACCESS, 
+        RULE_TYPE, 
+        SENSITIVE_RULE, 
+        VERSION, 
+        DELETE_FLAG, 
+        DELETE_TIME, 
+        CREATED_BY, 
+        CREATED_DATE, 
+        LAST_MODIFIED_BY, 
+        LAST_MODIFIED_DATE,
+        COLUMN_NAME_COMMENTS,
+        DATA_LENGTH
+    </sql>
+
+    <!--动态条件-->
+    <sql id="where_filters">
+        <where>
+            <if test="id != null and id != ''">
+                and ID = #{id}
+            </if>
+            <if test="dbTableName != null and dbTableName != ''">
+                and DB_TABLE_NAME = #{dbTableName}
+            </if>
+            <if test="dbColumnName != null and dbColumnName != ''">
+                and DB_COLUMN_NAME = #{dbColumnName}
+            </if>
+            <if test="allowAccess != null and allowAccess != ''">
+                and ALLOW_ACCESS = #{allowAccess}
+            </if>
+            <if test="ruleType != null and ruleType != ''">
+                and RULE_TYPE = #{ruleType}
+            </if>
+            <if test="sensitiveRule != null and sensitiveRule != ''">
+                and SENSITIVE_RULE = #{sensitiveRule}
+            </if>
+            <if test="deleteFlag != null and deleteFlag != ''">
+                and DELETE_FLAG = #{deleteFlag}
+            </if>
+            <if test="deleteTime != null and deleteTime != ''">
+                and DELETE_TIME = #{deleteTime}
+            </if>
+        </where>
+    </sql>
+
+    <select id="queryProductInfoPage" resultType="java.util.Map">
+        select  *  from COLUMN_RULE
+    </select>
+
+</mapper>
