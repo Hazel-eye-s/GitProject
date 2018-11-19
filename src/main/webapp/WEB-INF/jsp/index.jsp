@@ -17,7 +17,7 @@
     <input type="file" name="file" value="121"><br>
     <input type="file" name="file" value="123"><br>
     <input type="submit" name="上传图片">
-    <img src="${filename }"/>
+    
 </form>
 </body>
 </html>
