@@ -79,6 +79,8 @@ public class ColumnRuleEntity extends AbstractAuditablePersistable<String> {
      */
     @Column(name = "DATA_LENGTH")
     long dataLength;
+    @Column(name = "VERSION")
+    int version;
 
     public String getColumnNameComments() {
         return columnNameComments;
@@ -160,6 +162,13 @@ public class ColumnRuleEntity extends AbstractAuditablePersistable<String> {
         return this.deleteTime;
     }
 
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     @Override
     public String toString() {

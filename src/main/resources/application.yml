@@ -1,5 +1,7 @@
 server:
-  port: 8088
+  port: 8080
+  tomcat:
+      uri-encoding: utf-8
   # database
 spring:
   datasource:
@@ -18,11 +20,11 @@ spring:
     database: ORACLE
     servlet:
         multipart:
-          max-file-size: 128MB
-          max-request-size: 128MB
+          max-file-size: 1024MB
+          max-request-size: 2048MB
 mybatis:
-      mapper-locations: mybatis/mapper/*.xml
+      mapper-locations: classpath:mybatis/mapper/*.xml
       configuration:
-              default-statement-timeout: 10
-              map-underscore-to-camel-case: true
-
+                default-statement-timeout: 10
+                map-underscore-to-camel-case: true
+#      config-location: classpath:mybatis-config.xml

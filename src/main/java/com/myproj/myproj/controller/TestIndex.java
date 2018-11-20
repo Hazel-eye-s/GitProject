@@ -114,21 +114,18 @@ public class TestIndex {
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            System.out.println(file.length+"****");
-            for (int i = 0; i <file.length; i++) {
+            for (int i = 0; i < file.length; i++) {
                 if (file[i] != null) {
                     uploadPhotoUtil(uploadDir, file[i]);
-                    model.addAttribute("uploadDir",uploadDir);
+                    model.addAttribute("uploadDir", uploadDir);
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
             return "fail";
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return "success";
     }
 }
