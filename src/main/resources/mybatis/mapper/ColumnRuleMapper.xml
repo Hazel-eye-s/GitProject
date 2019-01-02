@@ -20,7 +20,6 @@
     </resultMap>
 
     <sql id="column_list">
-        ID, 
         DB_TABLE_NAME, 
         DB_COLUMN_NAME, 
         ALLOW_ACCESS, 
@@ -36,7 +35,14 @@
         COLUMN_NAME_COMMENTS,
         DATA_LENGTH
     </sql>
-
+    <sql id="column_list_test">
+        DB_TABLE_NAME,
+        ALLOW_ACCESS,
+        DB_COLUMN_NAME,
+        CREATED_DATE,
+        COLUMN_NAME_COMMENTS,
+        DATA_LENGTH
+    </sql>
     <!--动态条件-->
     <sql id="where_filters">
         <where>
@@ -68,7 +74,14 @@
     </sql>
 
     <select id="queryProductInfoPage" resultType="java.util.Map">
-        select  *  from COLUMN_RULE
+        select
+        <include refid="column_list_test"/>
+        from COLUMN_RULE
     </select>
-
+    <select id="querySysAreaInfo" resultType="java.util.Map">
+    select
+        NAME,LONG_DESC,PINYIN,SHORT_NAME,AREA_CODE,POST_CODE
+        from SYS_AREA_INFO sai where sai.NAME is  not NULL and sai.LONG_DESC is not null and sai.PINYIN is  not null and sai.SHORT_NAME is not null and sai.AREA_CODE is  not null
+        and sai.POST_CODE is  not null
+    </select>
 </mapper>

@@ -18,6 +18,7 @@ public interface ColumnRuleDao {
 
     List<Map<String, Object>> queryProductInfoPage();
 
+    List<Map<String, Object>> querySysAreaInfo();
 
 }
 

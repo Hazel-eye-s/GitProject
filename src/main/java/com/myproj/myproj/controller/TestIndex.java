@@ -44,7 +44,6 @@ public class TestIndex {
     public String index() {
         return "index";
     }
-
     @RequestMapping("/test")
     @ResponseBody
     public ColumnRuleEntity getInfo() {
