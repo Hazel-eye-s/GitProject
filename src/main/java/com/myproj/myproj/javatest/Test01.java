@@ -26,6 +26,8 @@ public class Test01 {
         }
     }
     public static void main(String args[]) {
+        System.out.println(args.toString());
+        System.out.println(Integer.MAX_VALUE);
         Test01 studyThread = new Test01();
         Tinc t1 = studyThread.new Tinc();
         Tdec t11=studyThread.new Tdec();
