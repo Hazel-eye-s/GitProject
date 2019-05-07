@@ -66,7 +66,7 @@ public class TestMq1 {
             throws Exception {
         for (int i = 1; i <= SEND_NUMBER; i++) {
             TextMessage message = session
-                    .createTextMessage("ActiveMq 发送的消息" + "王金玉"+i);
+                    .createTextMessage("ActiveMq 发送的消息" + "qqqqq"+i);
             // 发送消息到目的地方
             System.out.println("发送消息：" + "ActiveMq 发送的消息" + i);
             producer.send(message);
